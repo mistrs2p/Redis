@@ -81,6 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                    <h3>Hi, You are visitor #{{ $visits }}.</h3>
+                    
                     Laravel
                 </div>
 
