@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <h3>Hi, You are visitor #{{ $visits }}.</h3>
+
+                    <p>This video has been downloaded {{ $downloads ?? 'no' }} times.</p>
                     
                     Laravel
                 </div>
