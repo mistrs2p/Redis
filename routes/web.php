@@ -34,4 +34,6 @@ Route::get('videos/{id}/download', function ($id) {
 
 Route::get('articles/{article}', function (App\Article $article) {
    return $article; 
+
+   Redis::zincrby('trending_articles', 1, $article->id);
 });
