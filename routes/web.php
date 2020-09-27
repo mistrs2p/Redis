@@ -48,7 +48,7 @@ Route::get('articles/trending', function () {
 Route::get('articles/{article}', function (App\Article $article) {
    Redis::zincrby('trending_articles', 1, $article); // $article->id same output
 
-   Redis::zremrangebyrank('trending_article', 0, -4)
+   Redis::zremrangebyrank('trending_article', 0, -4);
 
    return $article; 
 });
