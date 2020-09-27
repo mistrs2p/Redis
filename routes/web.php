@@ -31,3 +31,7 @@ Route::get('videos/{id}/download', function ($id) {
     Redis::incr("videos.{$id}.downloads");
     return back();
 });
+
+Route::get('articles/{article}', function (App\Article $article) {
+   return $article; 
+});
