@@ -52,3 +52,19 @@ Route::get('articles/{article}', function (App\Article $article) {
 
    return $article; 
 });
+
+// Hashes
+
+Route::get('/hashes', function () {
+
+    $user1stats = [
+        'favorites' => 50,
+        'watchLaters' => 95,
+        'compelitions' => 29
+    ];
+
+    Redis::hmset('user.1.stats', $user1stats);
+
+    return Redis::hgetall('user.1.stats');
+
+});
