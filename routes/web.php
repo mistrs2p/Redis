@@ -68,3 +68,7 @@ Route::get('/hashes', function () {
     return Redis::hgetall('user.1.stats');
 
 });
+
+Route::get('users/{id}/stats', function ($id) {
+    Redis::hgetall('user.{id}.stats');
+});
