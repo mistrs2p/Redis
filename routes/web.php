@@ -74,27 +74,28 @@ use Illuminate\Support\Facades\Redis;
 // });
 
 
-function remember($key, $minuts, $callback) {
-    if ($value = Redis::get($key)) {
-        return json_decode($value);
-    }
+// function remember($key, $minuts, $callback) {
+//     if ($value = Redis::get($key)) {
+//         return json_decode($value);
+//     }
 
-    $value = $callback();
+//     $value = $callback();
 
-    Redis::setex($key, $minuts, $value);
+//     Redis::setex($key, $minuts, $value);
 
-    return $value;
-}
+//     return $value;
+// }
 
-Route::get('/', function () {
+// Route::get('/', function () {
 
-    if(Redis::exists('articles.all')) {
-        return json_decode(Redis::get('articles.all'));
-    }
+//     if(Redis::exists('articles.all')) {
+//         return json_decode(Redis::get('articles.all'));
+//     }
 
-    $articles = App\Article::all();
+//     $articles = App\Article::all();
 
-    Redis::setex('articles.all', 10, $articles);
+//     Redis::setex('articles.all', 10, $articles);
 
-    return $articles;
-});
+//     return $articles;
+// });
+
