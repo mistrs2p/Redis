@@ -99,8 +99,15 @@ use Illuminate\Support\Facades\Redis;
 //     return $articles;
 // });
 
+class Articles
+{
+    public function all () {
+        return Cache::remember('articles.all', 60 * 60, function () {
+            return App\Article::all();
+        });    
+    }
+}
+
 Route::get('/', function () {
-    return Cache::remember('articles.all', 60 * 60, function () {
-        return App\Article::all();
-    });
+    
 });
