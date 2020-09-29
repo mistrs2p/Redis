@@ -108,6 +108,6 @@ class Articles
     }
 }
 
-Route::get('/', function () {
-    
+Route::get('/', function (Articles $articles) {
+    return $articles->all();
 });
