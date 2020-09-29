@@ -99,12 +99,29 @@ use Illuminate\Support\Facades\Redis;
 //     return $articles;
 // });
 
+class CashableArticles
+{
+    protected $articles;
+    
+    public function __construct ($articles) 
+    {
+        $this->articles = $articles;
+    }
+
+    public function all () 
+    {
+        return Cache::remember('articles.all', 60 * 60, function () {
+            return $this->articles->all();
+        });
+    }
+}
+
 class Articles
 {
     public function all () {
-        return Cache::remember('articles.all', 60 * 60, function () {
+        // return Cache::remember('articles.all', 60 * 60, function () {
             return App\Article::all();
-        });    
+        // });    
     }
 }
 
